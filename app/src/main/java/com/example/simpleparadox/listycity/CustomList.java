@@ -87,7 +87,11 @@ public class CustomList extends ArrayAdapter<City> {
      *  The city to be delete form the list.
      */
     public void deleteCity(City city) {
-
+        if (!hasCity(city)) {
+            throw new IllegalArgumentException( city.getCityName()+"is not in the list!");
+        } else {
+            cities.remove(city);
+        }
     }
 
 
