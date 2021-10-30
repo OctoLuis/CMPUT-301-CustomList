@@ -29,5 +29,17 @@ public class CustomListTest {
         Assertions.assertTrue(list.hasCity(edmonton));
     }
 
+    @Test
+    public void deleteCityTest(){
+        City edmonton = new City("Edmonton", "AB");
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> {
+            list.deleteCity(edmonton);
+        });
+        list.addCity(edmonton);
+        Assertions.assertTrue(list.hasCity(edmonton));
+        list.deleteCity(edmonton);
+        Assertions.assertFalse(list.hasCity(edmonton));
+    }
+
 
 }
